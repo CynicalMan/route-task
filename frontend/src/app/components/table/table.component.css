@@ -31,3 +31,27 @@ th {
 .form-input label{
     margin-right: 10px;
 }
+
+.form-input{
+    margin-right: 15px;
+}
+
+@media (max-width: 768px) {
+
+    .table-container{
+        font-size: 18px;
+    }
+
+    .form-input-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-input{
+        margin-bottom: 15px;
+    }
+    
+    .form-input label{
+        margin-right: 10px;
+    }
+}

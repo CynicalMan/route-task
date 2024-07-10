@@ -23,7 +23,6 @@ export class HomeComponent {
   selectedCustomerTransactions: any[] = [];
 
   constructor(private dataService: DataService) {
-    
   }
 
   ngOnInit(): void {
@@ -45,7 +44,7 @@ export class HomeComponent {
   }
 
   
-  view: [number, number] = [700, 400];
+  
   colorScheme : Color = {
     name: 'myScheme',
     selectable: true,
