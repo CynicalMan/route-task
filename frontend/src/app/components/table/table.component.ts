@@ -1,9 +1,6 @@
-
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Customer } from "../../models/customer.model"
-import { Transaction } from '../../models/transaction.model';
 import { CustomerTransactions } from '../../models/customertrans.model';
 
 
@@ -30,12 +27,9 @@ export class TableComponent implements OnInit {
 
   filter() {
     this.filteredData = this.tableData.filter(item =>
-      (item.name.toLowerCase().startsWith(this.nameFilterValue.toLowerCase()))
+      (item.name.toLowerCase().startsWith(this.nameFilterValue.toLowerCase())) &&
+      (item.total_amount.toString().startsWith(this.amountFilterValue.toLowerCase()))
     );
-    console.log(this.nameFilterValue);
-    console.log(this.filteredData);
-    
-    
     this.filteredDataChange.emit(this.filteredData);
   }
 
