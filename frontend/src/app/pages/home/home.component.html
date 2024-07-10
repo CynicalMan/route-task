@@ -1,0 +1,35 @@
+<div class="home-container" *ngIf="customers.length > 0; else noData">
+    <div class="inner-container">
+        <div class="table-container">
+            <app-table 
+                [tableData]="tableData"
+                (filteredDataChange)="updateFilteredData($event)"
+                (customerSelected)="onCustomerSelected($event)">
+            </app-table>
+        </div>
+        <div class="chart-container" >
+            <ngx-charts-bar-vertical
+                *ngIf="selectedCustomerTransactions.length > 0"
+                [view]="view"
+                [scheme]="colorScheme"
+                [results]="selectedCustomerTransactions"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel">
+            </ngx-charts-bar-vertical>
+        </div>
+    </div>
+</div>
+<ng-template #noData>
+    <div class="error-container">
+        <div class="error-content">
+            <p>No data was found </p>
+        </div>
+    </div>
+</ng-template>
+

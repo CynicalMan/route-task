@@ -1,0 +1,30 @@
+<div class="table-container">
+    <div class="form-input-container">
+        <div class="form-input">
+            <label for="name"></label>
+            <input [(ngModel)]="nameFilterValue" (input)="filter()" placeholder="Filter by name">
+        </div>
+        <div class="form-input">
+            <label for="amount"></label>
+            <input [(ngModel)]="amountFilterValue" (input)="filter()" placeholder="Filter by amount">
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Total Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of filteredData">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.total_amount }}</td>
+                <td><button (click)="selectCustomer(item.id)">View Transactions</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
